@@ -5,6 +5,7 @@ import { Search, Mail, User, Check, Trash2, Clock, Send, Shield, UserCheck, Eye,
 import Navbar from '../components/Navbar';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
+import { useAuth } from '../context/AuthContext';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('projects');
@@ -28,8 +29,7 @@ const AdminDashboard = () => {
   const [inviteStatusFilter, setInviteStatusFilter] = useState('');
   const [inviteRoleFilter, setInviteRoleFilter] = useState('');
 
-  const token = localStorage.getItem('token');
-  const loggedInUser = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+  const { token, user: loggedInUser } = useAuth();
   const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {

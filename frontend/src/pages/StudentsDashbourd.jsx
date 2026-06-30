@@ -11,6 +11,7 @@ import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import ProjectCard from '../components/ProjectCard';
 import Navbar from '../components/Navbar';
+import { useAuth } from '../context/AuthContext';
 
 const STUDENT_MOCK_NOTIFICATIONS = [
   { id: 'notif-1', message: "Recruiter 'Sarah Williams' liked your project: 'Nexus - Social Platform'.", time: '2 hours ago', type: 'like' },
@@ -75,8 +76,7 @@ const StudentsDashbourd = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   
-  const token = localStorage.getItem("token");
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const { token, user } = useAuth();
 
   // Animation Variants
   const containerVariants = {
