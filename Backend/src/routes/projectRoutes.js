@@ -12,7 +12,7 @@ router.post('/', restrictTo('Student'), uploadProjectImages, projectController.c
 router.get('/liked', projectController.getLikedProjects);
 router.get('/', projectController.getProjects);
 router.get('/:id', projectController.getProjectById);
-router.put('/:id', projectController.updateProject);
+router.put('/:id', uploadProjectImages, projectController.updateProject);
 router.delete('/:id', projectController.deleteProject);
 router.patch('/:id/visibility', restrictTo('Recruiter', 'Admin'), projectController.updateVisibility);
 router.post('/:id/likes', interactionController.toggleLike);
