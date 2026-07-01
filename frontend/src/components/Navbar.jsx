@@ -63,9 +63,10 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center space-x-4">
           {token ? (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
+              {/* Notification Bell — only for logged-in users */}
               <span className="text-sm text-zinc-400">
-                Hi, <strong className="text-zinc-200">{user?.name}</strong> ({user?.role})
+                Hi, <strong className="text-zinc-200">{user?.name}</strong>
               </span>
               <button 
                 onClick={handleLogoutClick}
