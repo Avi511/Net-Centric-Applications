@@ -92,10 +92,6 @@ io.on('connection', (socket) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const passport = require('passport');
-require('./config/passport');
-app.use(passport.initialize());
-
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // ── Routes ───────────────────────────────────────────────────────────────────
